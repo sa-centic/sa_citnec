@@ -1,0 +1,27 @@
+.container
+  .page-header
+    h1.text-center Users
+    h3 = render 'navbar'
+    h4 = render 'search_form'
+.container
+  table.table.table-hover
+    thead.table-light
+      tr
+        th = sort_link(@q, :email)
+        th = sort_link(@q, :first_name)
+        th = sort_link(@q, :last_name)
+        th Role
+        th.text-center Actions
+        th = link_to "+", new_user_path, class: 'btn btn-primary'
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.email
+          td = user.first_name
+          td = user.last_name
+          td = user.roles.first&.name
+          td.text-center
+            = link_to "Show", user_path(user), class: 'btn btn-info'
+            = link_to "Edit", edit_user_path(user), class: 'ms-1 me-1 btn btn-success'
+            = button_to "Delete", user_path(user), class: "btn btn-danger", form_class: 'd-inline', method: :delete,
+                    data: {turbo: false}, confirm: "Are you sure you want to delete the user account?"
