@@ -15,18 +15,28 @@ gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+# Ekstra bootstrap templates
 gem "bootstrap_form", "~> 5.0"
 
+# Injecter Bootstrap template til de default devise views
 gem 'devise-bootstrap-form'
 
+# Debugging
 gem "byebug"
 
+#Pagination - Tjek UsersController's index metode - https://github.com/kaminari/kaminari
+gem 'kaminari'
+
+#Mail-service hosted lokalt - https://github.com/ryanb/letter_opener
 gem "letter_opener", group: :development
 
+#SLIM > HTML.ERB - https://erb2slim.com/
 gem "slim-rails"
 
+# Authentication - https://github.com/heartcombo/devise
 gem "devise"
 
+# Scoping - https://github.com/varvet/pundit
 gem "pundit"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -45,15 +55,13 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Rolle tildeling - https://github.com/RolifyCommunity/rolify
 gem "rolify"
 
-gem 'simple_form'
-
-gem 'kaminari'
-
+# querying, sorting, & searching for objects - https://github.com/activerecord-hackery/ransack
 gem 'ransack'
 
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
 
 
 # Use Redis adapter to run Action Cable in production
@@ -80,6 +88,12 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
@@ -95,7 +109,5 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+
 end

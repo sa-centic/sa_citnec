@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
+  add_flash_types :info, :error, :warning
+
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   # prepend_before_action :require_no_authentication, only: [:cancel ]
   before_action :authenticate_user!

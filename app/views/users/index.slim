@@ -23,5 +23,4 @@
           td.text-center
             = link_to "Show", user_path(user), class: 'btn btn-info'
             = link_to "Edit", edit_user_path(user), class: 'ms-1 me-1 btn btn-success'
-            = button_to "Delete", user_path(user), class: "btn btn-danger", form_class: 'd-inline', method: :delete,
-                    data: {turbo: false}, confirm: "Are you sure you want to delete the user account?"
+            = button_to "Delete", user_path(user), method: :delete, data: { turbo: false}, confirm: 'Are you sure?',  class: "btn btn-danger", form_class: 'd-inline'

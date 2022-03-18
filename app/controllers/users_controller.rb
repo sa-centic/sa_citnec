@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
-    @users = policy_scope(User)
-
-    @q = User.ransack(params[:q])
+    @q = policy_scope(User).ransack(params[:q])
     @users = @q.result(distinct: true)
   end
 
@@ -20,9 +18,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "The user #{@user.email}, has been succesfully created"
       send_invite_mail unless @user.has_role? :courseholder
-      redirect_to users_path
+      redirect_to users_path, notice: "The user #{@user.email}, has been succesfully created"
     else
       render 'new'
     end
@@ -47,8 +44,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "Your account information was successfully updated"
-      redirect_to @user
+      redirect_to users_path, notice: "User has been successfully been updated"
     else
       render 'edit'
     end
