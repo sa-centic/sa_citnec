@@ -18,6 +18,6 @@ module SaCitnec
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.action_mailer.default_url_options = { host: 'SA-Citnec' }
+    config.action_mailer.default_url_options = { host: "localhost:3000"}
   end
 end
