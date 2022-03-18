@@ -125,9 +125,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jquery-turbolinks (2.1.0)
-      railties (>= 3.1.0)
-      turbolinks
     jsbundling-rails (1.0.2)
       railties (>= 6.0.0)
     kaminari (1.2.2)
@@ -274,9 +271,6 @@ GEM
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -312,7 +306,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   jbuilder
-  jquery-turbolinks
   jsbundling-rails
   kaminari
   letter_opener

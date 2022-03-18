@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :courseholder_id, presence: true, if: Proc.new { |u| u.has_role?(:coursetaker)}
 
 
+  scope :is_courseholder, -> { with_role :courseholder }
 
   #Add this to your migration
   # t.references :courseholder, foreign_key: { to_table: :user }

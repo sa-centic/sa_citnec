@@ -3,7 +3,7 @@
     .col-10
       = render 'users/shared/error_messages', resource: @user
       = bootstrap_form_for(@user) do |f|
-        = f.collection_radio_buttons :role_ids, policy_scope(Role), :id, :name
+        = f.collection_select :role_ids, policy_scope(Role), :id, :name
         .mb-3
           = f.label :first_name, class: "col-2 col-form-label text-light"
           .col-10
@@ -16,5 +16,7 @@
             = f.label :email, class: "col-2 col-form-label text-light"
             .col-10
               = f.email_field :email, class: "form-control shadow rounded", placeholder: "Enter your email address"
+          .mb-3
 
+        //  = f.collection_select :courseholder, User.is_courseholder, :id, :first_name
         = f.submit class: 'btn btn-success', data: { turbo: false }
