@@ -303,6 +303,7 @@ DEPENDENCIES
   debug
   devise
   devise-bootstrap-form
+  factory_bot
   factory_bot_rails
   faker
   jbuilder
