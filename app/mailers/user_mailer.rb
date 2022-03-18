@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@saCitnec.com'
+  default from: 'sa+citnec@centic.dk'
 
 
   def invite_mail(recipient, token)
