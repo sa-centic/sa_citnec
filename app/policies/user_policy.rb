@@ -4,9 +4,9 @@ class UserPolicy < ApplicationPolicy
       if user.has_role? :admin
         scope.all
       elsif user.has_role? :moderator
-        scope.without_role(:admin)
+        scope.without_role([:admin])
       else
-        scope.with_any_role(:courseholder, :coursetaker)
+        scope.with_any_role([:courseholder, :coursetaker])
       end
     end
   end

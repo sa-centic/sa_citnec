@@ -13,8 +13,28 @@ class User < ApplicationRecord
 
   validates :courseholder_id, presence: true, if: Proc.new { |u| u.has_role?(:coursetaker)}
 
+  validates_presence_of :first_name, :last_name
+
+
+
+  validate :password_complexity, on: :update
+
+  def password_complexity
+    if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+      errors.add :password, "must include at least one lowercase letter, one uppercase letter, and one digit"
+    end
+  end
+
 
   scope :is_courseholder, -> { with_role :courseholder }
+
+  scope :with_any_role, ->(names) do
+    where(id: joins(:roles).select('users.id').distinct.where("roles.name IN (?)", names))
+  end
+
+  scope :without_role, ->(names) do
+    where(id: joins(:roles).select('users.id').distinct.where.not("roles.name IN (?)", names))
+  end
 
   #Add this to your migration
   # t.references :courseholder, foreign_key: { to_table: :user }

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User signs in" do
 
-  let(:user) { create :user }
+  let(:user) { create :user, :admin }
 
   scenario "User successfully signs in" do
     user_login_as(user)
