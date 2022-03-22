@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name
 
 
+  validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, on: :create
 
   validate :password_complexity, on: :update
 
