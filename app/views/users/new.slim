@@ -1,2 +1,4 @@
-h1.text-center.mt-4 Sign up for Citnec
-= render 'form'
+h1.text-center.mt-4 = t("helpers.submit.create_resource", resource: User.model_name.human.downcase)
+
+.container
+  = render 'form'

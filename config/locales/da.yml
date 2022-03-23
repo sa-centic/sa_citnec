@@ -1,0 +1,76 @@
+da:
+  role:
+    admin: Administrativt personale
+    moderator: Bogholderi
+    courseholder: Kursusholder
+    coursetaker: Kursist
+  layouts:
+    application:
+      my-profile: Min profil
+      sign-out: Log ud
+  pages:
+    index:
+      show-users: Vis alle brugere
+      welcome: Velkommen til Citnec kursustæller
+
+
+  emails:
+    forgot-email:
+      title: Kære du
+  controller:
+    application:
+      not-authorized: Du har desværre ikke rettigheder til at udføre denne handling
+  common:
+    show_view: Bruger visning
+    show: Vis
+    edit: Rediger
+    reset: Nulstil
+    delete: Slet
+    create: "Opret %{thing}"
+    my_profile: Min Profil
+    Log out: Log ud
+    forgot_password: 'Glemt kodeord?'
+    remember_me: 'Husk mig?'
+  simple_form:
+    required:
+      mark: "*"
+      html: '*'
+  activerecord:
+    models:
+      user:
+        one: Bruger
+        other: Brugere
+      courseholder:
+        one: Kursusholder
+        other: KursusHolder
+    attributes:
+      courseholder:
+        one: Kursusholder
+        other: KursusHolder
+      default:
+        email: Email
+      user:
+        id: Database id
+        first_name: Fornavn
+        last_name: Efternavn
+        role_id: Rolle
+        role_ids: Roller
+        courseholder_id: Kursusholder
+      roles: Rolle
+    roles:
+      admin: Administrator
+      moderator: Bogholderi
+      courseholder: Kursusafholder
+      coursetaker: Kursist
+  users:
+    sessions:
+      new:
+        sign_in: "Log ind"
+  devise:
+    passwords:
+      recover_password_button: "Glemt dit kodeord"
+  helpers:
+    submit:
+      create_resource: "Opret %{resource}"
+      edit_resource: "Rediger %{resource}"
+      update_user: 'Opdater bruger'

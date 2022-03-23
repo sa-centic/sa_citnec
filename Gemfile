@@ -17,6 +17,8 @@ gem 'factory_bot'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+gem "rails-i18n"
+
 # Ekstra bootstrap templates
 gem "bootstrap_form", "~> 5.0"
 

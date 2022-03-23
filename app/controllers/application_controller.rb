@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   add_flash_types :info, :error, :warning
 
 
+  before_action :switch_locale
+
+  def switch_locale
+    I18n.locale = :da
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   # prepend_before_action :require_no_authentication, only: [:cancel ]
   before_action :authenticate_user!
