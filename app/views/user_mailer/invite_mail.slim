@@ -1,18 +1,11 @@
-html
-  head
-    meta[content="text/html; charset=UTF-8" http-equiv="Content-Type"]
-  body
-    h1
-      | Welcome to sacitnec.com,
-      = @recipient.first_name
-    p
-      |  You have successfully signed up to sacitnec.com, your username/email is:
-      = @recipient.email
-      | .
-      br
-    p
-      |  To login to the site, just follow this link:
-      = link_to "create password", edit_password_url(@recipient, reset_password_token: @token)
-      | .
-    p
-      | Thanks for joining and have a great day!
+h1  = "Kære #{ @recipient.first_name }"
+
+p Du inviteres hermed til at bruge Citnecs Kursuscenters optællingssystem. Du er oprettet med denne email i systemet og kan danne dit eget personlige kodeord ved hjælp af dette link:
+
+= link_to 'Opret kodeord', edit_user_password_url(@recipient, reset_password_token: @token)
+
+p Hvis du har brug for hjælp, så kontakt bogholderiet.
+
+p Med venlig hilsen
+
+p Citnec Kursuscenter
