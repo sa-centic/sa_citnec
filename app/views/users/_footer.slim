@@ -1,0 +1,8 @@
+nav.navbar.navbar.fixed-bottom.navbar-light.bg-light
+  .container-fluid
+    .nav.navbar-nav.w-100.justify-content-4nr
+        - if signed_in?
+          = t("common.logged_in_as") + " " + current_user.email + "\n"
+    .nav.navbar-nav.w-100.justify-content-start
+      - if signed_in?
+        = t("common.role_is") + " " + current_user.roles.first.translated_name

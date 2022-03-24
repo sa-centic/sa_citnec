@@ -1,7 +1,6 @@
 .container
   .page-header
-    h1.text-center = User.model_name.human(count: 2)
-    h3 = render 'navbar'
+    h1.text-center = t("pages.index.show-users")
     h4 = render 'search_form'
 .container
   table.table.table-hover

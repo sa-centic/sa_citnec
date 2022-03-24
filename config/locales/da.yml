@@ -10,8 +10,8 @@ da:
       sign-out: Log ud
   pages:
     index:
-      show-users: Vis alle brugere
-      welcome: Velkommen til Citnec kursustæller
+      show-users: Brugerliste
+      welcome: Citnec kursustæller
 
 
   emails:
@@ -21,6 +21,9 @@ da:
     application:
       not-authorized: Du har desværre ikke rettigheder til at udføre denne handling
   common:
+    logged_in_as: "Logget på som:"
+    role_is: "Rolle er:"
+    and: og
     show_view: Bruger visning
     show: Vis
     edit: Rediger

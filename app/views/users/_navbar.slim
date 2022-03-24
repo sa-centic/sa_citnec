@@ -1,35 +1,10 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container-fluid
-    a.navbar-brand[href="#"]
-      | SA-Citnec
-    button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
-      span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-      ul.navbar-nav.me-auto.mb-2.mb-lg-0
-        li.nav-item
-          a.nav-link.active[aria-current="page" href="#"]
-            | Home
-        li.nav-item.dropdown
-          a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"]
-            |  Dropdown
-          ul.dropdown-menu[aria-labelledby="navbarDropdown"]
-            li
-              a.dropdown-item[href="#"]
-                | Action
-            li
-              a.dropdown-item[href="#"]
-                | Another action
-            li
-              hr.dropdown-divider
-            li
-              a.dropdown-item[href="#"]
-                | Something else here
-        li.nav-item
-          - if signed_in?
-            = button_to t("common.Log out"), destroy_user_session_path, class: "btn btn-info", method: :delete, data: { turbo: "false" }
-        li.nav-item
-          a.nav-link.active[aria-current="page" href="#"]
-            - if signed_in?
-              = current_user.email
-
-
+    .nav.navbar-nav.w-100.justify-content-start
+      - if signed_in?
+        = button_to t("pages.index.show-users"), users_path, class: "btn-lg btn-secondary", method: :get, data: { turbo: "false" }
+    .nav.navbar-nav.ms-auto.w-70.justify-content-end
+      - if signed_in?
+    .nav.navbar-nav.ms-auto.w-100.justify-content-end
+      - if signed_in?
+        = button_to t("common.Log out"), destroy_user_session_path, class: "btn-lg btn-info", method: :delete, data: { turbo: "false" }

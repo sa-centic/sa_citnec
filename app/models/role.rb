@@ -16,4 +16,6 @@ class Role < ApplicationRecord
     I18n.t(name, :scope => 'role')
   end
 
+
+
 end
