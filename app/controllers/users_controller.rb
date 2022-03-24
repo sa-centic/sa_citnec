@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      send_invite_mail unless @user.has_role? :courseholder
+      send_invite_mail unless @user.has_role? :coursetaker
       redirect_to users_path, notice: "The user #{@user.email}, has been succesfully created"
     else
       render 'new'
