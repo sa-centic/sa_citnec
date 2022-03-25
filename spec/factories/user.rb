@@ -4,6 +4,7 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     password { "1234FemSeks" }
+    courseholder_id { nil }
 
     trait :admin do
       before(:create) {|user| user.add_role(:admin)}
@@ -18,7 +19,6 @@ FactoryBot.define do
     end
 
     trait :coursetaker do
-      before(:create) {|user| user.add_role(:coursetaker)}
       before(:create) {|user| user.add_role(:coursetaker)}
 
     end

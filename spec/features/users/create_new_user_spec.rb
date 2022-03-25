@@ -9,16 +9,16 @@ RSpec.feature "Create new user" do
   let(:user_admin) { create(:user, :admin) }
   let(:user_moderator) { create(:user, :moderator) }
   let(:user_courseholder) { create(:user, :courseholder) }
-  let(:user_coursetaker) { create(:user, :coursetaker) }
+  let(:user_coursetaker) { create(:user, :coursetaker, courseholder_id: user_courseholder.id) }
 
   scenario "Admin Create new courseholder" do
     user_login_as(user_admin)
     click_on('+')
-    expect(page).to have_content ('Sign up for Citnec')
-    choose I18n.t('activerecord.roles.coursetaker')
-    fill_in('First name', :with => (Faker::Name.first_name))
-    fill_in('Last name', :with => (Faker::Name.last_name))
-    fill_in('Email', :with => (Faker::Internet.email))
+    choose I18n.t('role.courseholder')
+    fill_in I18n.t('activerecord.attributes.user.first_name'), :with => (Faker::Name.first_name)
+    fill_in I18n.t('activerecord.attributes.user.last_name'), :with => (Faker::Name.last_name)
+    fill_in('E-mail', :with => (Faker::Internet.email))
+    find('input[name="commit"]').click
 
   end
 

@@ -40,9 +40,12 @@ class UsersController < ApplicationController
 
 
   def edit
+    authorize current_user
   end
 
+
   def update
+    authorize current_user
     if @user.update(user_params)
       redirect_to users_path, notice: "User has been successfully been updated"
     else
@@ -50,7 +53,9 @@ class UsersController < ApplicationController
     end
   end
 
+
   def destroy
+    authorize current_user
     @user.destroy
     redirect_to users_path, status: :see_other
   end

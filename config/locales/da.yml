@@ -1,4 +1,8 @@
 da:
+  pundit:
+    user_policy:
+      edit?: Du har ikke adgang til at redigere brugere
+      destroy?: Du har ikke adgang til at slette brugere
   role:
     admin: Administrativt personale
     moderator: Bogholderi

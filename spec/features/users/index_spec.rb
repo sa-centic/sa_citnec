@@ -7,6 +7,6 @@ RSpec.feature "Users list", :type => :feature do
   scenario "User visits the index list" do
     user_login_as(user)
     visit users_path
-    expect(page).to have_text("Users")
+    expect(page).to have_text("Bruger")
   end
 end
