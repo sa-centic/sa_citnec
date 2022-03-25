@@ -18,7 +18,7 @@
           td = user.email
           td = user.first_name
           td = user.last_name
-          td = t("activerecord.roles.#{ user.roles.first.name }")
+          td = t("activerecord.roles.#{ user.roles.first.translated_name }")
           td.text-center
             = link_to t("common.show"), user_path(user), class: 'btn btn-info'
             = link_to t("common.edit"), edit_user_path(user), class: 'ms-1 me-1 btn btn-success'
