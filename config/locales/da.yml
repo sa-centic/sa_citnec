@@ -38,6 +38,10 @@ da:
     Log out: Log ud
     forgot_password: 'Glemt kodeord?'
     remember_me: 'Husk mig?'
+    change_your_password: Skift dit kodeord
+    new_password: Ny kode
+    confirm_new_password: Bekræft ny kode
+    change_my_password: Skift min kode
   simple_form:
     required:
       mark: "*"
