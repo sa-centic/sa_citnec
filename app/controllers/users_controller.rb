@@ -40,7 +40,6 @@ class UsersController < ApplicationController
 
 
   def edit
-    authorize current_user
   end
 
 
