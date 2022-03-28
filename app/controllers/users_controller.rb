@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   def index
     @q = policy_scope(User).ransack(params[:q])
     @users = @q.result(distinct: true)
+    #This will exclude the currently logged in user, from the index page, to avoid, accidentally deleting himself.
+    @users = User.without(current_user)
   end
 
   def show
@@ -19,11 +21,14 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       send_invite_mail unless @user.has_role? :coursetaker
-      redirect_to users_path, notice: "The user #{@user.email}, has been succesfully created"
+      redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + User.last.first_name  + " " +
+         User.last.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + User.last.email + " " + t("common.created")
     else
       render 'new'
     end
   end
+
+
 
   def send_invite_mail
     token = generate_invitation_token
@@ -40,13 +45,14 @@ class UsersController < ApplicationController
 
 
   def edit
+    authorize current_user
   end
 
 
   def update
     authorize current_user
     if @user.update(user_params)
-      redirect_to users_path, notice: "User has been successfully been updated"
+      redirect_to users_path, notice: t("common.updated")
     else
       render 'edit'
     end
@@ -56,7 +62,7 @@ class UsersController < ApplicationController
   def destroy
     authorize current_user
     @user.destroy
-    redirect_to users_path, status: :see_other
+    redirect_to users_path, status: :see_other, notice: t("common.deleted")
   end
 
   private

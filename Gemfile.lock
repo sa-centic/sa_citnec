@@ -330,6 +330,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  xpath
 
 RUBY VERSION
    ruby 3.1.0p0

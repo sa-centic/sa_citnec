@@ -34,6 +34,11 @@ class User < ApplicationRecord
   #Add this to your migration
   # t.references :courseholder, foreign_key: { to_table: :user }
 
+  def send_reset_password_instructions
+    return false if self.has_role?  :coursetaker
+    super
+  end
+
   private
 
   def must_have_a_role

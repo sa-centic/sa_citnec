@@ -67,6 +67,8 @@ gem "rolify"
 # querying, sorting, & searching for objects - https://github.com/activerecord-hackery/ransack
 gem 'ransack'
 
+
+
 # gem 'jquery-turbolinks'
 
 
@@ -98,6 +100,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
+  gem "xpath"
 end
 
 group :development do
