@@ -77,6 +77,7 @@ da:
     passwords:
       recover_password_button: "Glemt dit kodeord"
   helpers:
+    invite_mail_header: "Velkommen til Citnec Kursuscenter"
     submit:
       create_resource: "Opret %{resource}"
       edit_resource: "Rediger %{resource}"

@@ -2,7 +2,7 @@ h1  = "Kære #{ @recipient.first_name }"
 
 p Du inviteres hermed til at bruge Citnecs Kursuscenters optællingssystem. Du er oprettet med denne email i systemet og kan danne dit eget personlige kodeord ved hjælp af dette link:
 
-= link_to 'Opret kodeord', edit_user_password_url(@recipient, reset_password_token: @token)
+= link_to 'Opret kodeord', edit_password_url(@recipient, reset_password_token: @token)
 
 p Hvis du har brug for hjælp, så kontakt bogholderiet.
 
