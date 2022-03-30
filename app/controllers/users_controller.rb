@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @q = policy_scope(User).ransack(params[:q])
     @users = @q.result(distinct: true)
     #This will exclude the currently logged in user, from the index page, to avoid, accidentally deleting himself.
-    @users = User.without(current_user)
   end
 
   def show
