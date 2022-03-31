@@ -63,11 +63,11 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "sa_citnec_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: "qa-sa-citnec.herokuapp.com"}
+  config.action_mailer.default_url_options = { host: ENV['DOMAIN_NAME']}
   config.action_mailer.smtp_settings = {
     user_name: 'apikey',
     password: ENV['SENDGRID_PASSWORD'],
-    domain: 'qa-sa-citnec.herokuapp.com',
+    domain: ENV['DOMAIN_NAME'],
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
