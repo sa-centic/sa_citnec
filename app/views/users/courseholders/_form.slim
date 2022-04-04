@@ -1,0 +1,11 @@
+.row.justify-content-center
+  .col-6
+    = bootstrap_form_for @courseholder, url: course_holders_path do |f|
+      = f.text_field :first_name
+      = f.text_field :last_name
+      = f.email_field :email
+      = f.select :course_id, Course.all.map { |c| [c.name, c.id]}
+      = f.hidden_field :roles, value: '3'
+      - button_text = ("PLACEHOLDER"), resource: User.model_name.human.downcase))
+      - button_text = ('PLACEHOLDER') if @courseholder.persisted?
+      = f.submit(button_text)

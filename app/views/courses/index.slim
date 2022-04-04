@@ -1,0 +1,25 @@
+.container
+  .page-header
+    h1.text-center = ("PLACEHOLDER KIG I VIEWS/COURSES/INDEX.SLIM")
+    h4 = render 'search_form'
+.container
+  table.table.table-hover
+    thead.table-light
+      tr
+        th = sort_link(@q, :course_name)
+        th = ("Course description")
+        th = sort_link(@q, :user_id, "Kursus holder" )
+        th = sort_link(@q, :max_coursetakers)
+        th.text-center Actions
+        th = link_to "+", new_course_path, class: 'btn btn-primary'
+    tbody
+      - @courses.each do |course|
+        tr
+          td = course.course_name
+          td = course.course_description
+          td = course.courseholder.full_name
+          td = course.max_coursetakers
+          td.text-center
+            = link_to t("common.show"), course_path(course), class: 'btn btn-info'
+            = link_to t("common.edit"), edit_course_path(course), class: 'ms-1 me-1 btn btn-success'
+            = button_to t("common.delete"), course_path(course), method: :delete, data: { turbo: false}, confirm: 'Are you sure?',  class: "btn btn-danger", form_class: 'd-inline'

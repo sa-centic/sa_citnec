@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.password = SecureRandom.hex(16)
-
+    #  @user.becomes!(Users::Coursetaker) if @user.has_role? :coursetaker
+    # debugger
     if @user.save
       session[:user_id] = @user.id
       send_invite_mail unless @user.has_role? :coursetaker
@@ -67,7 +68,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :role_ids, :courseholder_id)
+    params.require(:user).permit(:first_name, :last_name, :email, :role_ids, :course_id, courses_attributes: [:course_id, :course_name, :_destroy])
   end
 
   def set_user

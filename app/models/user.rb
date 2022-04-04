@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   rolify
   validate :must_have_a_role
-  validates :courseholder_id, presence: true, if: Proc.new { |u| u.has_role?(:coursetaker)}
   validates_presence_of :first_name, :last_name
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, on: :create
   validate :password_complexity, on: :update
@@ -11,10 +10,13 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
-  has_many :coursetakers, class_name: "User",
-           foreign_key: "courseholder_id"
+  attr_accessor :role
 
-  belongs_to :courseholder, class_name: "User", optional: true
+
+
+
+
+  # belongs_to :courseholder, class_name: "User", optional: true
 
 
   def active_for_authentication?
@@ -33,6 +35,11 @@ class User < ApplicationRecord
 
   #Add this to your migration
   # t.references :courseholder, foreign_key: { to_table: :user }
+  #
+
+  def full_name
+    first_name + " " + last_name
+  end
 
   def send_reset_password_instructions
     return false if self.has_role?  :coursetaker

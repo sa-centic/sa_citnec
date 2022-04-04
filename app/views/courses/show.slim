@@ -1,0 +1,25 @@
+.container
+  .row.mb-3
+    .col-12.col-lg-5.justify-content-start.align-items-start.mb-lg-2
+      h3.mb-2.mb-lg-0.fw-bold
+        dt = t("common.show_view")
+  .card.p-3.p-lg-4.flex-column.justify-content-center.align-items-between.mb-2
+    .container-fluid
+      dl.mb-4
+        dt = ("Kursus navn")
+        dd= @course.course_name
+      dl.mb-4
+        dt = ("Beskrivelse")
+        dd= @course.course_description
+      dl.mb-4
+        dt = ("Kursusholder")
+        dd= @course.courseholder.full_name
+      dl.mb-4
+        dt = ("Max antal deltagere")
+        dd = @course.max_coursetakers
+      dl.mb-4
+        dt = ("Tilmeldte kursister")
+        - @course.coursetakers.each do |coursetaker|
+          dd = coursetaker.full_name
+      = link_to t("common.edit"), edit_course_path(@course), class: 'ms-1 me-1 btn btn-success'
+      = button_to t("common.delete"), course_path(@course), class: "btn btn-danger", form_class: 'd-inline', method: :delete, data: { turbo: false }, confirm: "Are you sure you want to delete the user account?"

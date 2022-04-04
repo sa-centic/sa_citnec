@@ -3,6 +3,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     .nav.navbar-nav.w-100.justify-content-start
       - if signed_in?
         = button_to t("pages.index.show-users"), users_path, class: "btn-lg btn-secondary", method: :get, data: { turbo: "false" }
+    .nav.navbar-nav.w-100.justify-content-start
+      - if signed_in?
+        = button_to ("PLACEHOLDER KIG I layouts/_navbar.slim Courses"), courses_path, class: "btn-lg btn-secondary", method: :get, data: { turbo: "false" }
     .nav.navbar-nav.ms-auto.w-70.justify-content-end
       - if signed_in?
     .nav.navbar-nav.ms-auto.w-100.justify-content-end

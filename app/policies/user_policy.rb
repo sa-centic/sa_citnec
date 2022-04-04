@@ -2,11 +2,11 @@ class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.has_role? :admin
-        scope.without(user)
+        scope.all
       elsif user.has_role? :moderator
-        scope.without_role([:admin]).without(user)
+        scope.without_role([:admin])
       else
-        scope.with_any_role([:courseholder, :coursetaker]).without(user)
+        scope.with_any_role([:courseholder, :coursetaker])
       end
     end
   end

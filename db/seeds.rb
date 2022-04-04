@@ -17,14 +17,18 @@ Role.create_or_find_by!(name: 'coursetaker')
 
 
 # Seed database with an admin and Mod/bookkeeper
-User.create_or_find_by!(email: 'psn@admin.com', password: '1234FemSeks', first_name: 'Per', last_name: 'Hansen', role_ids: '1')
-User.create_or_find_by!(email: 'bm@mod.com', password: '1234FemSeks', first_name: 'Birthe Damgaard', last_name: 'Madsen', role_ids: '2')
+admin = User.new(first_name: 'Per', last_name: 'Hansen', email: 'psn@admin.com', password: '1234FemSeks')
+moderator = User.new(first_name: 'Birthe', last_name: 'Madsen', email: 'bm@mod.com', password: '1234FemSeks')
 
 # Seed database with 4 courseholders
-User.create_or_find_by!(email: 'wa@BodyCombat.com', password: '1234FemSeks', first_name: 'Winnie', last_name: 'Andersen', role_ids: '3')
-User.create_or_find_by!(email: 'pg@Boulders.com', password: '1234FemSeks', first_name: 'Peter', last_name: 'Gottlieb', role_ids: '3')
-User.create_or_find_by!(email: 'lm@PushPull.com', password: '1234FemSeks', first_name: 'Lasse', last_name: 'Mertz', role_ids: '3')
-User.create_or_find_by!(email: 'oa@BikingInYourLivingRoom.com', password: '1234FemSeks', first_name: 'Ognjen', last_name: 'Andric', role_ids: '3')
+courseholder = Users::Courseholder.new(first_name: 'Peter', last_name: 'Gottlieb', email: 'pg@boulders.com', password: '1234FemSeks')
+coursetaker = Users::Coursetaker.new(first_name: 'Attendant', last_name: 'Attendant', email: 'attendant@citnec.dk', password: '1234FemSeks')
 
-# Seed database with 1 coursetaker
-User.create_or_find_by!(email: 'kursist@kursist.dk', password: '1234FemSeks', first_name: 'Random', last_name: 'Kursist', role_ids: '4', courseholder_id: '3')
+admin.add_role(:admin)
+moderator.add_role(:moderator)
+courseholder.add_role(:courseholder)
+coursetaker.add_role(:coursetaker)
+admin.save
+moderator.save
+courseholder.save
+coursetaker.save
