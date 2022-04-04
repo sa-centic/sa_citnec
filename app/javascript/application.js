@@ -6,6 +6,7 @@ import * as bootstrap from "bootstrap"
 import "./users"
 import "./src/jquery"
 import "./src/jquery-ui"
+import "@nathanvda/cocoon"
 
 
 

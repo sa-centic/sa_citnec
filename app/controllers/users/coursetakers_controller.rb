@@ -4,6 +4,7 @@ class Users::CoursetakersController < ApplicationController
     @coursetaker.course_registrations.build
   end
 
+
   def create
 
     user_type = params[:class].constantize
@@ -16,10 +17,15 @@ class Users::CoursetakersController < ApplicationController
       render :new
     end
   end
-end
 
-private
 
-def coursetaker_params
-  params.require(:users_coursetaker).permit(:first_name, :last_name, :email, :roles, course_registrations_attributes: [:course_id])
+  def edit
+    @coursetaker = Users::Coursetaker.find(params[:id])
+  end
+
+  private
+
+  def coursetaker_params
+    params.require(:users_coursetaker).permit(:first_name, :last_name, :email, :roles, course_registrations_attributes: [:course_id, :_destroy])
+  end
 end

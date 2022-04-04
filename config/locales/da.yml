@@ -79,7 +79,7 @@ da:
       admin: Administrator
       moderator: Bogholderi
       course_holder: Kursusholder
-      coursetaker: Kursist
+      attendant: Kursist
   users:
     sessions:
       new:

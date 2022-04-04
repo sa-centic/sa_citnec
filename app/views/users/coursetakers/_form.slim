@@ -1,12 +1,14 @@
 .row.justify-content-center
   .col-6.course-reg-field
-    = bootstrap_form_for @coursetaker, url: coursetakers_path do |f|
+    = bootstrap_form_for @coursetaker, url: users_coursetakers_path do |f|
       = f.text_field :first_name
       = f.text_field :last_name
       = f.email_field :email
-      = f.fields_for :course_registrations do |c|
-        = render 'course_registration_fields', f: c
+      / = f.fields_for :course_registrations do |c|
+      /   = render 'course_registration_fields', f: c
       #add-course-button
-      = link_to_add_association 'Tilføj kursus', f, :course_registrations, class: 'btn btn-success btn-sm'
+        = link_to_add_association 'Tilføj kursus', f, :course_registrations, class: 'btn btn-success btn-sm'
       = f.hidden_field :roles, value: '4'
-      = f.submit class: 'btn btn-success', data: { turbo: false }
+      - button_text = t("helpers.submit.create_resource", resource: User.model_name.human.downcase)
+      - button_text = t('helpers.submit.update_user') if @coursetaker.persisted?
+      = f.submit(button_text)

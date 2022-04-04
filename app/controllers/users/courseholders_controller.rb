@@ -1,9 +1,10 @@
 class Users::CourseholdersController < ApplicationController
-   def new
+  def new
     @courseholder = Users::Courseholder.new
-   end
+  end
 
   def create
+    byebug
     user_type = params[:class].constantize
     new_courseholder = Users::Create.call(courseholder_params, user_type)
 
@@ -14,6 +15,11 @@ class Users::CourseholdersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @courseholder = Users::Courseholder.find(params[:id])
+  end
+
 
   private
 

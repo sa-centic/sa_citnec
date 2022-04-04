@@ -1,5 +1,7 @@
 class Users::Update
   attr_reader :user
+  attr_reader :coursetaker
+  attr_reader :courseholder
 
   def self.call(user_params, user_id)
     new(user_params, user_id)
