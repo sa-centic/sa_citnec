@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   rolify
   validate :must_have_a_role
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :email
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, on: :create
   validate :password_complexity, on: :update
 
@@ -11,6 +11,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attr_accessor :role
+  attr_accessor :course_id
 
 
 

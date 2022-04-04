@@ -11,3 +11,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     .nav.navbar-nav.ms-auto.w-100.justify-content-end
       - if signed_in?
         = button_to t("common.Log out"), destroy_user_session_path, class: "btn-lg btn-info", method: :delete, data: { turbo: "false" }
+    .nav.navbar-nav.ms-auto.w-70.justify-content-end
+      - if signed_in?
+

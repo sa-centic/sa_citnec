@@ -78,7 +78,7 @@ da:
     roles:
       admin: Administrator
       moderator: Bogholderi
-      courseholder: Kursusafholder
+      course_holder: Kursusholder
       coursetaker: Kursist
   users:
     sessions:

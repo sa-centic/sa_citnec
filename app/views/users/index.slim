@@ -11,7 +11,18 @@
         th = sort_link(@q, :last_name)
         th = User.human_attribute_name(:role_id)
         th.text-center Actions
-        th = link_to "+", new_user_path, class: 'btn btn-primary'
+        th.dropdown
+          button#dropdownMenuButton1.btn.btn-primary[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
+            |  +
+          ul.dropdown-menu[aria-labelledby="dropdownMenuButton1"]
+            li
+              = link_to ('Administrativt Personale'), new_user_path, class: 'dropdown-item'
+            li
+              = link_to ('Bogholderi'), new_user_path, class: 'dropdown-item'
+            li
+              = link_to ('Kursusholder'), new_courseholder_path, class: 'dropdown-item'
+            li
+              = link_to ('Kursist'), new_coursetaker_path, class: 'dropdown-item'
     tbody
       - @users.each do |user|
         tr

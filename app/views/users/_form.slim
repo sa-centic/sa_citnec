@@ -2,11 +2,8 @@
   .row.justify-content-center
     .col-10
       = render 'users/shared/error_messages', resource: @user
-      = bootstrap_form_for(:user, @user) do |f|
-        = f.collection_select :role_ids, policy_scope(Role), :id, :translated_name
+      = bootstrap_form_for(@user) do |f|
         .mb-3
-          #courseholder-dropdown.mb-3.col-5
-           = f.select :course, Course.map { |course| ["#{course.course_name} #{course.max_coursetakers}", courseholder.id] }
           .col-10
             = f.text_field :first_name, class: "form-control shadow rounded label"
           .mb-3
