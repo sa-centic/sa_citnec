@@ -17,7 +17,7 @@
         tr
           td = course.course_name
           td = course.course_description
-          td = course.courseholder.full_name
+          td = course.courseholder&.full_name
           td = course.max_coursetakers
           td.text-center
             = link_to t("common.show"), course_path(course), class: 'btn btn-info'

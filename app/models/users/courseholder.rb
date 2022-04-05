@@ -4,6 +4,8 @@ class Users::Courseholder < User
   #  Courseholder.model_name
   # end
 
+
+
   attr_accessor :course_id
   has_one :course, foreign_key: 'courseholder_id'
 end

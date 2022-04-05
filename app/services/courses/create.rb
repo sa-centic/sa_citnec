@@ -1,3 +1,0 @@
-class Courses::Create
-
-end

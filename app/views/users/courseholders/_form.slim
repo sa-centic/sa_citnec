@@ -1,7 +1,7 @@
 .container
   .row.justify-content-center
     .col-10
-      = bootstrap_form_for @courseholder, url: users_courseholders_path do |f|
+      = bootstrap_form_for @courseholder do |f|
         .mb-3
           .col-10
             = f.text_field :first_name, class: "form-control shadow rounded label"
@@ -11,9 +11,6 @@
           .mb-3
             .col-10
               = f.email_field :email, class: "form-control shadow rounded", placeholder: "din@email.dk"
-          .mb-3
-            .col-10
-              = f.select :course_id, Course.all.map { |c| [c.course_name, c.id]}, {include_blank:true}
           .mb-3
             .col-10
               = f.hidden_field :role_ids, value: '3'

@@ -2,7 +2,7 @@
   .col-6
     =bootstrap_form_for(@course) do |f|
       = f.text_field :course_name
-      = f.select :courseholder, User.with_role(:courseholder).map { |courseholder| ["#{courseholder.first_name} #{courseholder.last_name}", courseholder.id] },
+      = f.select :courseholder_id, User.with_role(:courseholder).map { |courseholder| ["#{courseholder.first_name} #{courseholder.last_name}", courseholder.id] },
               { include_blank: true, }
       = f.text_area :course_description, rows:4
       = f.number_field :max_coursetakers, in: 1..200, step: 1

@@ -20,9 +20,9 @@ class User < ApplicationRecord
   # belongs_to :courseholder, class_name: "User", optional: true
 
 
-  def active_for_authentication?
-    super & !(self.has_role?([:coursetaker]))
-  end
+  # def active_for_authentication?
+  # super & !(self.has_role?([:coursetaker]))
+  # end
 
   scope :is_courseholder, -> { with_role :courseholder }
 

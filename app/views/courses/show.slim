@@ -10,16 +10,16 @@
         dd= @course.course_name
       dl.mb-4
         dt = ("Beskrivelse")
-        dd= @course.course_description
+        dd= @course&.course_description
       dl.mb-4
         dt = ("Kursusholder")
-        dd= @course.courseholder.full_name
+        dd= @course.courseholder&.full_name
       dl.mb-4
         dt = ("Max antal deltagere")
-        dd = @course.max_coursetakers
+        dd = @course&.max_coursetakers
       dl.mb-4
         dt = ("Tilmeldte kursister")
         - @course.coursetakers.each do |coursetaker|
-          dd = coursetaker.full_name
+          dd = coursetaker&.full_name
       = link_to t("common.edit"), edit_course_path(@course), class: 'ms-1 me-1 btn btn-success'
       = button_to t("common.delete"), course_path(@course), class: "btn btn-danger", form_class: 'd-inline', method: :delete, data: { turbo: false }, confirm: "Are you sure you want to delete the user account?"

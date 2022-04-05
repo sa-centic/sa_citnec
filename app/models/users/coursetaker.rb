@@ -4,6 +4,7 @@ class Users::Coursetaker < User
   #  Coursetaker.model_name
   # end
 
+
   has_many :course_registrations
   has_many :courses, through: :course_registrations
   accepts_nested_attributes_for :course_registrations, reject_if: :all_blank, allow_destroy: true

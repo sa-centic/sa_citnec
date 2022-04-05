@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @q = policy_scope(User).ransack(params[:q])
     @users = @q.result(distinct: true)
@@ -7,18 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    authorize @user
   end
 
   def new
-    new_user = Users::Create.call(user_params)
-
-    if new_user.success?
-      redirect_to users_path
-    else
-      @user = new_user.user
-      render :new
-    end
+    @user = User.new
   end
 
   def create
@@ -59,18 +53,17 @@ class UsersController < ApplicationController
 
 
   def update
-    update_user = Users::Update.call(user_params, params[:id])
-    if update_user.success?
-      redirect_to update_user.user
+    authorize current_user
+    if @user.update(user_params)
+      redirect_to users_path, notice: t("common.updated")
     else
-      render :edit
+      render 'edit'
     end
   end
 
 
   def destroy
     @user = User.find(params[:id])
-    authorize @user
     @user.destroy
     redirect_to users_path, notice: t("common.deleted")
   end
@@ -79,6 +72,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :roles, courses_attributes: [:id, :course_name, :_destroy])
+  end
+
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   end

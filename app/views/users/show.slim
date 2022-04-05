@@ -28,7 +28,6 @@
       - if @user.has_role? :courseholder
         dl.mb-4
           dt = ("Afholder på")
-          - @user.courses.each do |course|
-            dd = course.course_name
-  = link_to t("common.edit"), edit_user_path(@user), class: 'ms-1 me-1 btn btn-success'
+          dd = @user.course&.course_name
+  = link_to t("common.edit"), url_for([:edit, @user]), class: 'ms-1 me-1 btn btn-success'
   = button_to t("common.delete"), user_path(@user), class: "btn btn-danger", form_class: 'd-inline', method: :delete, data: { turbo: false }, confirm: "Are you sure you want to delete the user account?"
