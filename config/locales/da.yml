@@ -1,4 +1,6 @@
 da:
+  Course: Kursus
+  course: Kursus
   pundit:
     user_policy:
       edit?: Du har ikke adgang til at redigere brugere
@@ -55,6 +57,14 @@ da:
       html: '*'
   activerecord:
     models:
+      course_registrations:
+        one: Kursus registrering
+        more: Kursus registreringer
+      course:
+        course_id: Kursus
+        one: Kursus
+        other: Kurser
+      course_name: Kursus navn
       user:
         one: Bruger
         other: Brugere
@@ -65,6 +75,7 @@ da:
       courseholder:
         one: Kursusholder
         other: KursusHolder
+        course_id: ID
       default:
         email: E-mail
       user:
@@ -73,7 +84,15 @@ da:
         last_name: Efternavn
         role_id: Rolle
         role_ids: Roller
+        course_id: kursus ID
+      course:
+        course_id: Kursus
+        course_name: Kursus navn
         courseholder_id: Kursusholder
+        course_description: Beskrivelse
+        max_coursetakers: Max antal deltagere
+      course_registration:
+        course_id: Kursus
       roles: Rolle
     roles:
       admin: Administrator
@@ -93,3 +112,6 @@ da:
       create_resource: "Opret %{resource}"
       edit_resource: "Rediger %{resource}"
       update_user: 'Opdater bruger'
+  courselist: "Kursusliste"
+  course_name: "Kursus navn"
+  course_registration_fields: "Kursus"

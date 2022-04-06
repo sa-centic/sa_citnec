@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
     debugger
     @course.courseholder = User.find(course_params[:courseholder].to_i) unless course_params[:courseholder].blank?
     if @course.save
-      redirect_to courses_path, notice: "!Placeholder KIG I DIN CONTROLLER! Gemt"
+      redirect_to courses_path, notice: "Nyt Kursus er blevet oprettet"
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      redirect_to courses_path, notice: ("!Placeholder KIG I DIN CONTROLLER! Opdateret")
+      redirect_to courses_path, notice: ("Kursus er blevet opdateret")
     else
       render 'edit'
     end
@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
 
   def destroy
       @course.destroy
-      redirect_to courses_path, status: :see_other, notice: ("!Placeholder KIG I DIN CONTROLLER! Slettet")
+      redirect_to courses_path, status: :see_other, notice: ("Kursus er blevet slettet")
   end
 
   private

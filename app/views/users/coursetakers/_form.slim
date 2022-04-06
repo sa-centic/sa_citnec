@@ -5,7 +5,7 @@
       = f.text_field :last_name
       = f.email_field :email
       = f.fields_for :course_registrations do |c|
-        = render 'course_registration_fields', f: c
+       = render ('course_registration_fields'), f: c
       #add-course-button
         = link_to_add_association 'Tilføj kursus', f, :course_registrations, class: 'btn btn-success btn-sm'
       = f.hidden_field :role_ids, value: '4'

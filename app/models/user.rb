@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   attr_accessor :role
   attr_accessor :course_id
+  attr_accessor :course
 
 
 

@@ -9,6 +9,8 @@ class Course < ApplicationRecord
   scope :with_courseholder, -> { where.not(courseholder_id: nil) }
 
 
-
+  def exceeded_coursetakers
+    errors.add(:user, 'Du skal fjerne nogle kursister før du kan lave denne handling') if max_coursetakers.count < coursetakers.count
+  end
 
 end

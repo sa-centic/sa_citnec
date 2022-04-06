@@ -10,4 +10,6 @@ class CourseRegistration < ApplicationRecord
   def maximum_coursetakers
     errors.add(:user, 'This is a test') if CourseRegistration.with_same_coursetaker(self).count > 3
   end
+
+
 end

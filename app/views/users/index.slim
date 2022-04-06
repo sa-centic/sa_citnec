@@ -10,6 +10,7 @@
         th = sort_link(@q, :first_name)
         th = sort_link(@q, :last_name)
         th = User.human_attribute_name(:role_id)
+        th Kurser
         th.text-center Actions
         th.dropdown
           button#dropdownMenuButton1.btn.btn-primary[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
@@ -30,6 +31,7 @@
           td = user.first_name
           td = user.last_name
           td = t("activerecord.roles.#{ user.roles.first.translated_name }")
+          td = list_users_courses(user)
           td.text-center
             = link_to t("common.show"), user_path(user), class: 'btn btn-info'
             = link_to t("common.edit"), url_for([:edit, user]), class: 'ms-1 me-1 btn btn-success'

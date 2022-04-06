@@ -4,9 +4,8 @@
       = f.text_field :course_name
       = f.select :courseholder_id, User.with_role(:courseholder).map { |courseholder| ["#{courseholder.first_name} #{courseholder.last_name}", courseholder.id] },
               { include_blank: true, }
-      = f.text_area :course_description, rows:4
+      = f.text_area :course_description
       = f.number_field :max_coursetakers, in: 1..200, step: 1
-      - button_text = t("helpers.submit.create_resource", resource: Course.model_name.human.downcase)
       - unless @course.new_record?
         - button_text = t('helpers.submit.update_user')
-      = f.submit(button_text)
+      = f.submit class: 'btn btn-success', data: { turbo: false }

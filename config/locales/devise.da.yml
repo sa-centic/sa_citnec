@@ -27,6 +27,7 @@ da:
         updated_at: Opdateret
     models:
       user: Bruger
+      course: Kursus
   devise:
     confirmations:
       confirmed: Din e-mail er nu bekræftet.

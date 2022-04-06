@@ -4,9 +4,9 @@ Turbo.session.drive = false
 import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./users"
+import "./courses"
 import "./src/jquery"
 import "./src/jquery-ui"
 import "@nathanvda/cocoon"
-import { Controller } from "@hotwired/stimulus"
 
 

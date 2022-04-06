@@ -5,14 +5,9 @@ module UsersHelper
       sentence = user.courses.map{ |c| link_to(c.course_name, course_path(c)).html_safe }
       safe_join(sentence, ', ')
     when 'Users::Courseholder'
-      link_to(user.course.course_name, course_path(user.course))
+      link_to(user.course.course_name, course_path(user.course)) if user.course.present?
     else
       ''
     end
-
-    def show
-
-    end
-
   end
 end
