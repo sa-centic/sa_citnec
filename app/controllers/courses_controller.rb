@@ -11,10 +11,12 @@ class CoursesController < ApplicationController
   end
 
   def new
+    authorize current_user, policy_class: CoursePolicy
     @course = Course.new
   end
 
   def create
+    authorize current_user, policy_class: CoursePolicy
     @course = Course.new(course_params.except(:courseholder))
     debugger
     @course.courseholder = User.find(course_params[:courseholder].to_i) unless course_params[:courseholder].blank?
@@ -27,6 +29,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    authorize current_user, policy_class: CoursePolicy
   end
 
   def update
@@ -38,6 +41,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    authorize current_user, policy_class: CoursePolicy
       @course.destroy
       redirect_to courses_path, status: :see_other, notice: ("Kursus er blevet slettet")
   end

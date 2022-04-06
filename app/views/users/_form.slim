@@ -3,6 +3,7 @@
     .col-10
       = render 'users/shared/error_messages', resource: @user
       = bootstrap_form_for(@user) do |f|
+        = f.collection_radio_buttons :role_ids, policy_scope(Role), :id, :translated_name
         .mb-3
           .col-10
             = f.text_field :first_name, class: "form-control shadow rounded label"

@@ -2,8 +2,14 @@ da:
   Course: Kursus
   course: Kursus
   pundit:
+    course_policy:
+      edit?: Du har ikke adgang til at redigere Kurser
+      new?: Du har ikke lov til at Oprette Kurser
+      destroy?: Du har ikke adgang til at slette Kurser
+      update?: Du har ikke adgang til at redigere kurser
     user_policy:
       edit?: Du har ikke adgang til at redigere brugere
+      new?: Du har ikke lov til at Oprette brugere
       destroy?: Du har ikke adgang til at slette brugere
   role:
     admin: Administrativt personale

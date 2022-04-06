@@ -13,4 +13,8 @@ class Course < ApplicationRecord
     errors.add(:user, 'Du skal fjerne nogle kursister før du kan lave denne handling') if max_coursetakers.count < coursetakers.count
   end
 
+  def self.policy_class
+    CoursePolicy
+  end
+
 end
