@@ -1,4 +1,11 @@
 da:
+  views:
+    pagination:
+      first: "Første"
+      last: "Sidste"
+      previous: "Forrige"
+      next: "Næste"
+      truncate: "&hellip;"
   Course: Kursus
   course: Kursus
   pundit:

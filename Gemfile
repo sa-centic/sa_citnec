@@ -14,6 +14,8 @@ gem "pg"
 
 gem 'factory_bot'
 
+gem 'bootstrap5-kaminari-views'
+
 gem 'cocoon'
 
 # Use the Puma web server [https://github.com/puma/puma]

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @q = policy_scope(User).ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page( params[:page])
     #This will exclude the currently logged in user, from the index page, to avoid, accidentally deleting himself.
   end
 

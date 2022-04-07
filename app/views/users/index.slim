@@ -36,3 +36,4 @@
             = link_to t("common.show"), user_path(user), class: 'btn btn-info'
             = link_to t("common.edit"), url_for([:edit, user]), class: 'ms-1 me-1 btn btn-success'
             = button_to t("common.delete"), user_path(user), method: :delete, data: { turbo: false}, confirm: 'Are you sure?',  class: "btn btn-danger", form_class: 'd-inline'
+  = paginate @users, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center"
