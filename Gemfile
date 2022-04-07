@@ -67,6 +67,7 @@ gem "jbuilder"
 # querying, sorting, & searching for objects - https://github.com/activerecord-hackery/ransack
 gem 'ransack'
 
+gem "faker"
 
 
 # gem 'jquery-turbolinks'
@@ -99,7 +100,6 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem "faker"
   gem "xpath"
   gem 'heavens_door'
 end
