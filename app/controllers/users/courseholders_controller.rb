@@ -24,6 +24,19 @@ class Users::CourseholdersController < ApplicationController
     end
   end
 
+  def send_invite_mail
+    token = generate_invitation_token
+    UserMailer.invite_mail(@admin, token).deliver_later
+  end
+
+  def generate_invitation_token
+    token, enc = Devise.token_generator.generate(@admin.class, :reset_password_token)
+    @admin.reset_password_token = enc
+    @admin.reset_password_sent_at = Time.current
+    @admin.save(validate: false)
+    token
+  end
+
   def edit
     @courseholder = Users::Courseholder.find(params[:id])
   end
