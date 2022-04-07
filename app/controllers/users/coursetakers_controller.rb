@@ -14,8 +14,8 @@ class Users::CoursetakersController < ApplicationController
     @coursetaker.password = SecureRandom.hex(16)
     if @coursetaker.save
       session[:user_id] = @coursetaker.id
-      redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + Users::Coursetaker.last.first_name  + " " +
-        Users::Coursetaker.last.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + Users::Coursetaker.last.email + " " + t("common.created")
+      redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + @coursetaker.first_name  + " " +
+        @coursetaker.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + @coursetaker.email + " " + t("common.created")
     else
       render 'new'
     end

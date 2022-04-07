@@ -16,6 +16,7 @@ class Users::CourseholdersController < ApplicationController
     @courseholder.password = SecureRandom.hex(16)
     if @courseholder.save
       session[:user_id] = @courseholder.id
+      send_invite_mail
       redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + @courseholder.first_name  + " " +
       @courseholder.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + @courseholder.email + " " + t("common.created")
     else

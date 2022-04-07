@@ -19,7 +19,7 @@ class Users::AdminsController < ApplicationController
     # debugger
     if @admin.save
       session[:user_id] = @admin.id
-      #   send_invite_mail unless @admin.has_role? :coursetaker
+      User.send_invite_mail
       redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + @admin.first_name  + " " +
         @admin.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + @admin.email + " " + t("common.created")
     else

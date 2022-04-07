@@ -13,15 +13,15 @@ class Users::ModeratorsController < ApplicationController
   end
 
   def create
-    @moderator = Users::Moderator.new(admin_params)
+    @moderator = Users::Moderator.new(moderator_params)
     @moderator.password = SecureRandom.hex(16)
     #  @user.becomes!(Users::Coursetaker) if @user.has_role? :coursetaker
     # debugger
     if @moderator.save
       session[:user_id] = @moderator.id
-      #   send_invite_mail
-      redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + @moderator.last.first_name  + " " +
-        @moderator.last.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + @moderator.last.email + " " + t("common.created")
+      send_invite_mail
+      redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + @moderator.first_name  + " " +
+        @moderator.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + @moderator.email + " " + t("common.created")
     else
       render 'new'
     end
@@ -29,18 +29,18 @@ class Users::ModeratorsController < ApplicationController
 
 
 
-  # def send_invite_mail
-  #   token = generate_invitation_token
-  #   UserMailer.invite_mail(@moderator, token).deliver_later
-  # end
-  #
-  # def generate_invitation_token
-  #   token, enc = Devise.token_generator.generate(@admin.class, :reset_password_token)
-  #   @moderator.reset_password_token = enc
-  #   @moderator.reset_password_sent_at = Time.current
-  #   @moderator.save(validate: false)
-  #   token
-  # end
+  def send_invite_mail
+    token = generate_invitation_token
+    UserMailer.invite_mail(@moderator, token).deliver_later
+  end
+
+  def generate_invitation_token
+    token, enc = Devise.token_generator.generate(@moderator.class, :reset_password_token)
+    @moderator.reset_password_token = enc
+    @moderator.reset_password_sent_at = Time.current
+    @moderator.save(validate: false)
+    token
+  end
 
 
   def edit
