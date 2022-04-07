@@ -15,20 +15,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
-    @user.password = SecureRandom.hex(16)
-    #  @user.becomes!(Users::Coursetaker) if @user.has_role? :coursetaker
-    # debugger
-    if @user.save
-      session[:user_id] = @user.id
-      send_invite_mail unless @user.has_role? :coursetaker
-      redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + User.last.first_name  + " " +
-         User.last.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + User.last.email + " " + t("common.created")
-    else
-      render 'new'
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   @user.password = SecureRandom.hex(16)
+  #   #  @user.becomes!(Users::Coursetaker) if @user.has_role? :coursetaker
+  #   # debugger
+  #   if @user.save
+  #     session[:user_id] = @user.id
+  #     send_invite_mail unless @user.has_role? :coursetaker
+  #     redirect_to users_path, notice: t("common.the_user") + " " + t("common.with_name") + " " + User.last.first_name  + " " +
+  #        User.last.last_name + "," + " " + t("common.and") + " " + t("common.with_email") + " " + User.last.email + " " + t("common.created")
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
 
 

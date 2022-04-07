@@ -1,12 +1,13 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.has_role? :admin
+
+      if @user.type == 'Users::Admin'
         scope.all
-      elsif user.has_role? :moderator
-        scope.without_role([:admin])
+      elsif user.type == 'Users::Moderator'
+        scope.where.not(type: ['Users::Admin'])
       else
-        scope.with_any_role([:courseholder, :coursetaker])
+        scope.where(['Users::Courseholder', 'Users::Coursetaker'])
       end
     end
   end
@@ -16,7 +17,7 @@ class UserPolicy < ApplicationPolicy
   # end
 
   def show?
-    user.has_role? :admin or (user.roles.ids.first <= record.roles.ids.first)
+    user.type == 'Users::Admin' or (user.type.first <= record.type.first)
   end
 
   def update?
@@ -24,10 +25,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.has_role? :admin or (user.has_role? :moderator and !record.has_role? :admin)
+    user.type == 'Users::Admin' or (user.type == 'Users::Moderator' and !record.type == 'Users::Admin')
   end
 
   def destroy?
-    user.has_role? :admin or (user.has_role? :moderator and !record.has_role? :admin)
+    user.type == 'Users::Admin' or (user.type == 'Users::Moderator' and !record.type == 'Users::Admin')
   end
 end

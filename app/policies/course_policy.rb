@@ -1,23 +1,23 @@
 class CoursePolicy < ApplicationPolicy
 
   def new?
-    user.has_role? :admin
+    user.type == 'Users::Admin'
   end
 
   def create?
-    user.has_role? :admin
+    user.type == 'Users::Admin'
   end
 
   def update?
-    user.has_role? :admin
+    user.type == 'Users::Admin'
   end
 
   def edit?
-    user.has_role? :admin
+    user.type == 'Users::Admin'
   end
 
   def destroy?
-    user.has_role? :admin
+    user.type == 'Users::Admin'
   end
 
 end

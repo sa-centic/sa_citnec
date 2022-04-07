@@ -39,7 +39,7 @@ class Users::CourseholdersController < ApplicationController
   private
 
   def courseholder_params
-    params.require(:users_courseholder).permit(:first_name, :last_name, :email, :courses, :course_id, :role_ids, course_registrations_attributes: [:course_id, :id, :_destroy])
+    params.require(:users_courseholder).permit(:first_name, :last_name, :email, :courses, :course_id, :type, course_registrations_attributes: [:course_id, :id, :_destroy])
   end
 
   def set_courseholder

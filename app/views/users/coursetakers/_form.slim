@@ -8,7 +8,6 @@
        = render ('course_registration_fields'), f: c
       #add-course-button
         = link_to_add_association 'Tilføj kursus', f, :course_registrations, class: 'btn btn-success btn-sm'
-      = f.hidden_field :role_ids, value: '4'
       - button_text = t("helpers.submit.create_resource", resource: User.model_name.human.downcase)
       - button_text = t('helpers.submit.update_user') if @coursetaker.persisted?
       = f.submit(button_text)

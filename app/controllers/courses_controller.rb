@@ -18,7 +18,6 @@ class CoursesController < ApplicationController
   def create
     authorize current_user, policy_class: CoursePolicy
     @course = Course.new(course_params.except(:courseholder))
-    debugger
     @course.courseholder = User.find(course_params[:courseholder].to_i) unless course_params[:courseholder].blank?
     if @course.save
       redirect_to courses_path, notice: "Nyt Kursus er blevet oprettet"

@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  rolify
-  validate :must_have_a_role
   validates_presence_of :first_name, :last_name, :email
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, on: :create
   validate :password_complexity, on: :update
@@ -27,12 +25,13 @@ class User < ApplicationRecord
 
   scope :is_courseholder, -> { with_role :courseholder }
 
-  scope :with_any_role, ->(names) do
-    where(id: joins(:roles).select('users.id').distinct.where("roles.name IN (?)", names))
+
+  def admin?
+    type == 'admin'
   end
 
-  scope :without_role, ->(names) do
-    where(id: joins(:roles).select('users.id').distinct.where.not("roles.name IN (?)", names))
+  def moderator?
+    type == 'moderator'
   end
 
   #Add this to your migration
@@ -50,9 +49,6 @@ class User < ApplicationRecord
 
   private
 
-  def must_have_a_role
-    errors.add(:role_ids, "skal vælges") unless roles.any?
-  end
 
   def password_complexity
     if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)

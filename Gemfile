@@ -63,8 +63,6 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Rolle tildeling - https://github.com/RolifyCommunity/rolify
-gem "rolify"
 
 # querying, sorting, & searching for objects - https://github.com/activerecord-hackery/ransack
 gem 'ransack'
@@ -103,6 +101,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker"
   gem "xpath"
+  gem 'heavens_door'
 end
 
 group :development do

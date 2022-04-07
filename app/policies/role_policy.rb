@@ -1,7 +1,7 @@
 class RolePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      case user.roles.first.name.to_sym
+      case user.type.first
       when :admin
         scope.all
       when :moderator

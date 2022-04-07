@@ -60,6 +60,11 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+    Capybara.page.driver.browser.manage.window.resize_to(1920, 2024)
+  end
+
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
@@ -78,5 +83,7 @@ end
 Capybara.register_driver :selenium_chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+
+
 
 Capybara.javascript_driver = :selenium_chrome

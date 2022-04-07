@@ -38,7 +38,7 @@ class Users::CoursetakersController < ApplicationController
   private
 
   def coursetaker_params
-    params.require(:users_coursetaker).permit(:first_name, :last_name, :email, :role_ids, course_registrations_attributes: [:course_id, :id, :_destroy])
+    params.require(:users_coursetaker).permit(:first_name, :last_name, :email, :type, course_registrations_attributes: [:course_id, :id, :_destroy])
   end
 
   def set_coursetaker

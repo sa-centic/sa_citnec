@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :coursetakers, class: 'Users::Coursetaker'
     resources :courseholders, class: 'Users::Courseholder'
+    resources :admins, class: 'Users::Admin'
+    resources :moderators, class: 'Users::Moderator'
   end
 end

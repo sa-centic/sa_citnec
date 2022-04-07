@@ -11,7 +11,7 @@ da:
       edit?: Du har ikke adgang til at redigere brugere
       new?: Du har ikke lov til at Oprette brugere
       destroy?: Du har ikke adgang til at slette brugere
-  role:
+  type:
     admin: Administrativt personale
     moderator: Bogholderi
     courseholder: Kursusholder
@@ -78,6 +78,9 @@ da:
         one: Kursusholder
         other: KursusHolder
     attributes:
+      type:
+        one: Rolle
+        more: Roller
       courseholder:
         one: Kursusholder
         other: KursusHolder
@@ -88,9 +91,15 @@ da:
         id: Database id
         first_name: Fornavn
         last_name: Efternavn
-        role_id: Rolle
-        role_ids: Roller
         course_id: kursus ID
+        role: rolle
+        type:
+          one: Rolle
+          more: roller
+          'Users::Admin' : 'Administrator'
+          'Users::Moderator': 'Bogholderi'
+          'Users::Courseholder' : 'Kursusholder'
+          'Users::Coursetaker' : 'Kursist'
       course:
         course_id: Kursus
         course_name: Kursus navn
@@ -99,12 +108,6 @@ da:
         max_coursetakers: Max antal deltagere
       course_registration:
         course_id: Kursus
-      roles: Rolle
-    roles:
-      admin: Administrator
-      moderator: Bogholderi
-      course_holder: Kursusholder
-      attendant: Kursist
   users:
     sessions:
       new:

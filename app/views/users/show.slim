@@ -18,14 +18,14 @@
         dt = t("activerecord.attributes.user.email")
         dd= @user.email
       dl.mb-4
-        dt = t("activerecord.attributes.roles")
-        dd= t("activerecord.roles.#{ @user.roles.first.translated_name }")
-      - if @user.has_role? :coursetaker
+        dt = t("activerecord.attributes.type.one")
+        dd= t("activerecord.attributes.user.type.#{ @user.type }")
+      - if @user.type == 'Users::Coursetaker'
         dl.mb-4
           dt = ("Tilmeldte kurser")
           - @user.courses.each do |course|
             dd = course.course_name
-      - if @user.has_role? :courseholder
+      - if @user.type == 'Users::Courseholder'
         dl.mb-4
           dt = ("Afholder på")
           dd = @user.course&.course_name

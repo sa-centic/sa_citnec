@@ -5,4 +5,4 @@ nav.navbar.navbar.fixed-bottom.navbar-light.bg-light
           = t("common.logged_in_as") + " " + current_user.email + "\n"
     .nav.navbar-nav.w-100.justify-content-start
       - if signed_in?
-        = t("common.role_is") + " " + current_user.roles.first.translated_name
+        = t("common.role_is") + " " + t("activerecord.attributes.user.type.#{ current_user.type }")
