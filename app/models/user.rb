@@ -49,6 +49,9 @@ class User < ApplicationRecord
 
   private
 
+  def self.policy_class
+    UserPolicy
+  end
 
   def password_complexity
     if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
