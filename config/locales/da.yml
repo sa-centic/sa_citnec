@@ -1,4 +1,8 @@
 da:
+  Users::Coursetaker : Kursist
+  Users::Admin : Administrator
+  Users::Moderator : Bogholderi
+  Users::Courseholder : Kursusholder
   views:
     pagination:
       first: "Første"
@@ -29,7 +33,7 @@ da:
       sign-out: Log ud
   pages:
     index:
-      show-users: Brugerliste
+      show-users: " Brugerliste"
       welcome: Citnec kursustæller
 
 
@@ -128,6 +132,6 @@ da:
       create_resource: "Opret %{resource}"
       edit_resource: "Rediger %{resource}"
       update_user: 'Opdater bruger'
-  courselist: "Kursusliste"
+  courselist: " Kursusliste"
   course_name: "Kursus navn"
   course_registration_fields: "Kursus"

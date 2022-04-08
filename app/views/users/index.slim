@@ -13,8 +13,7 @@
         th Kurser
         th.text-center Actions
         th.dropdown
-          button#dropdownMenuButton1.btn.btn-primary[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
-            |  +
+          button#dropdownMenuButton1.btn.btn-primary.i.bi.bi-person-plus-fill[type="button" data-bs-toggle="dropdown" aria-expanded="false" data-toggle='tooltip' data-placement ='bottom' title='Opret Bruger']
           ul.dropdown-menu[aria-labelledby="dropdownMenuButton1"]
             li
               = link_to ('Administrativt Personale'), new_users_admin_path, class: 'dropdown-item'

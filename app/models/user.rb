@@ -12,7 +12,7 @@ class User < ApplicationRecord
   attr_accessor :course_id
   attr_accessor :course
 
-  paginates_per 4
+  paginates_per 8
 
 
 

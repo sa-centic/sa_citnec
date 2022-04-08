@@ -2,15 +2,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container-fluid
     .nav.navbar-nav.w-100.justify-content-start
       - if signed_in?
-        = button_to t("pages.index.show-users"), users_path, class: "btn-lg btn-secondary", method: :get, data: { turbo: "false" }
-    .nav.navbar-nav.w-100.justify-content-center
-      - if signed_in?
-        = button_to t("courselist"), courses_path, class: "btn-lg btn-primary", method: :get, data: { turbo: "false" }
-    .nav.navbar-nav.ms-auto.w-70.justify-content-end
-      - if signed_in?
+        .dropdown
+          button#dropdownMenuButton1.btn.btn-primary.i.bi.bi-list[type="button" data-bs-toggle="dropdown" aria-expanded="false" data-toggle='tooltip' data-placement ='bottom' title='Menu']
+          ul.dropdown-menu[aria-labelledby="dropdownMenuButton1"]
+            li
+              = link_to t("pages.index.show-users"), users_path, class: 'dropdown-item bi bi-person-lines-fill'
+            li
+              = link_to t("courselist"), courses_path, class: 'dropdown-item bi bi-book-half'
     .nav.navbar-nav.ms-auto.w-100.justify-content-end
       - if signed_in?
-        = button_to t("common.Log out"), destroy_user_session_path, class: "btn-lg btn-info", method: :delete, data: { turbo: "false" }
-    .nav.navbar-nav.ms-auto.w-70.justify-content-end
-      - if signed_in?
-
+        = button_to destroy_user_session_path, method: :delete, data: { turbo: "false" }, class: "btn btn-danger",
+        'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => t('common.Log out') do
+          i.bi.bi-power

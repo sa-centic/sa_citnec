@@ -9,4 +9,4 @@ import "./src/jquery"
 import "./src/jquery-ui"
 import "@nathanvda/cocoon"
 
-
+$('a[data-toggle="tooltip"]').tooltip();

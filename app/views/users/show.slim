@@ -1,33 +1,16 @@
-.container
-  .row.mb-3
-    .col-12.col-lg-5.justify-content-start.align-items-start.mb-lg-2
-      h3.mb-2.mb-lg-0.fw-bold
-        dt = t("common.show_view")
-  .card.p-3.p-lg-4.flex-column.justify-content-center.align-items-between.mb-2
-    .container-fluid
-      dl.mb-4
-        dt = t("activerecord.attributes.user.id")
-        dd= @user.id
-      dl.mb-4
-        dt = t("activerecord.attributes.user.first_name")
-        dd= @user.first_name
-      dl.mb-4
-        dt = t("activerecord.attributes.user.last_name")
-        dd= @user.last_name
-      dl.mb-4
-        dt = t("activerecord.attributes.user.email")
-        dd= @user.email
-      dl.mb-4
-        dt = t("activerecord.attributes.type.one")
-        dd= t("activerecord.attributes.user.type.#{ @user.type }")
+.container.d-flex.justify-content-center.mt-5
+  .card.text-dark.bg-light.mb-3.col-12 style=('max-width: 18rem;')
+    .h2.card-header.d-flex.justify-content-center = "#{@user.first_name} #{@user.last_name}"
+    .card.card-body.bg-light
+      .card-title = "#{t('activerecord.attributes.user.type.one')}: #{t(@user.type)}"
+      .dt.mt-3 = "#{t('activerecord.attributes.user.email')}: #{@user.email}"
       - if @user.type == 'Users::Coursetaker'
-        dl.mb-4
-          dt = ("Tilmeldte kurser")
+        dl.mb-3.text-center.mt-3
+          dt.text-center.mb-3 = ("Tilmeldte kurser:")
           - @user.courses.each do |course|
             dd = course.course_name
       - if @user.type == 'Users::Courseholder'
-        dl.mb-4
-          dt = ("Afholder på")
+        dl.mb-3.text-center.mt-3
+          dt.text-center.mb-3 = ("Afholder på")
           dd = @user.course&.course_name
-  = link_to t("common.edit"), url_for([:edit, @user]), class: 'ms-1 me-1 btn btn-success'
-  = button_to t("common.delete"), user_path(@user), class: "btn btn-danger", form_class: 'd-inline', method: :delete, data: { turbo: false }, confirm: "Are you sure you want to delete the user account?"
+      = link_to('Tilbage', :back, class: 'btn btn-info mt-3', style: 'margin-bottom: 10;')

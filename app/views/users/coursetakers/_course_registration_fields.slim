@@ -1,6 +1,5 @@
 .nested-fields
-
-
-  =  f.select :course_id, Course.all.map { |c| [c.course_name, c.id] }, { include_blank: true }
-
-  = link_to_remove_association 'Fjern kursus', f, class: 'mt-4 btn btn-danger btn-sm'
+  .input-group.justify-content-center.mb-1
+    =  f.select :course_id, Course.all.map { |c| [c.course_name, c.id] }, { include_blank: true }
+    .input-group-append
+      = link_to_remove_association 'X', f, class: 'btn-sm btn-danger btn-as-block'

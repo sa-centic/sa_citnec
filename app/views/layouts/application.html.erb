@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -14,14 +13,14 @@
   <body>
 
   <div class="container" >
-<%= render 'layouts/navbar' if current_user %>'
+<%= render 'layouts/navbar' if current_user %>
     <% flash.each do |type, msg| %>
       <div class="alert alert-info text-center">
         <%= msg %>
       </div>
     <% end %>
     <%= yield %>
-<%= render 'layouts/footer' if current_user %>
+<%#= render 'layouts/footer' if current_user %>
   </div>
   </body>
 </html>
