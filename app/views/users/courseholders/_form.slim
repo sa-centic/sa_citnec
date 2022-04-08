@@ -1,9 +1,8 @@
 .row.justify-content-center
-  .col-8.course-reg-field
+  .col-8.course-reg-field.justify-content-center
     = bootstrap_form_for @courseholder do |f|
       = f.text_field :first_name
       = f.text_field :last_name
       = f.email_field :email
-      - button_text = t("helpers.submit.create_resource", resource: User.model_name.human.downcase)
-      - button_text = t('helpers.submit.update_user') if @courseholder.persisted?
-      = f.submit(button_text)
+      .input-group.justify-content-center.mb-3
+        = f.submit class: 'btn btn-primary', data: { turbo: false }
