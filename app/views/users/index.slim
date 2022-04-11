@@ -1,8 +1,10 @@
-.container
+.container.mt-3
+  .d-flex.justify-content-between
   .page-header
     h1.text-center = t("pages.index.show-users")
-    h4 = render 'search_form'
+    h4.mt-4 = render 'search_form'
 .container
+  .d-flex.justify-content-between
   table.table.table-hover
     thead.table-light
       tr
