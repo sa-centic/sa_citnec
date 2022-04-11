@@ -8,3 +8,4 @@ document.addEventListener('turbo:load', function() {
         $("tr[data-link]").css('cursor', 'pointer');
     });
 })
+
