@@ -1,4 +1,6 @@
-h1.text-center.mt-4 = t("helpers.submit.edit_resource", resource: User.model_name.human.downcase)
-
 .container
-  = render 'form'
+  .container.justify-content-center.mt-5 style=('max-width: 30rem;')
+    .card.text-dark.bg-light.mb-3 style=('max-width: 30rem;')
+      .h2.card-header.d-flex.justify-content-center = t("helpers.submit.edit_resource", resource: t('activerecord.attributes.user.type.Users::Moderator'))
+      .card.card-body.bg-light
+        = render 'form'

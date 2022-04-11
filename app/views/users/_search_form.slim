@@ -1,3 +1,5 @@
 = search_form_for @q do |f|
-  = f.search_field :first_name_or_last_name_or_email_cont, placeholder: "Search"
+  = f.search_field :first_name_or_last_name_or_email_cont, placeholder: "Søg"
+    / = User.all.pluck (:type).uniq.each do |type|
+  = f.select :type_eq, [[t('Users::Admin'), Users::Admin], [t('Users::Moderator'), Users::Moderator], [t('Users::Courseholder'), Users::Courseholder], [t('Users::Coursetaker'), Users::Coursetaker ]], { include_blank: true }, { onchange: 'this.form.submit();' }
   = f.submit
