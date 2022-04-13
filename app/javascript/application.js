@@ -8,5 +8,8 @@ import "./courses"
 import "./src/jquery"
 import "./src/jquery-ui"
 import "@nathanvda/cocoon"
+import "trix"
+import "@rails/actiontext"
+
 
 $('a[data-toggle="tooltip"]').tooltip();

@@ -1,0 +1,5 @@
+.row.justify-content-center
+  .col-6
+    =bootstrap_form_for(@print, url: course_prints_path ) do |f|
+      = f.rich_text_area :content, class: "form-control"
+      = f.submit class: 'btn btn-success', data: { turbo: false }

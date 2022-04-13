@@ -203,6 +203,7 @@ da:
     submit:
       create_resource: "Opret %{resource}"
       edit_resource: "Rediger %{resource}"
+      print_resource: "Print %{resource}"
       delete_resource: "Slet kursus"
       update_user: 'Opdater bruger'
   courselist: " Kursusliste"

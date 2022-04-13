@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  resources :courses do
+    resources :prints, scope: :courses, module: :courses
+  end
+
   namespace :users do
     resources :coursetakers, class: 'Users::Coursetaker'
     resources :courseholders, class: 'Users::Courseholder'

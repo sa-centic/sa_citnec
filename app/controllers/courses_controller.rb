@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
     authorize current_user, policy_class: CoursePolicy
   end
 
+
   def update
     if @course.update(course_params)
       redirect_to courses_path, notice: ("Kursus er blevet opdateret")
