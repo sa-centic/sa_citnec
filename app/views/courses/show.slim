@@ -62,6 +62,11 @@
                   td = coursetaker.first_name
                   td = coursetaker.last_name
                   td = coursetaker.email
+        li.list-group-item
+          p.fw-bold.mb-0
+            = ('Wysiwyg')
+            | :
+            .trix_content.span.fw-normal  == render_trix_with_vars(@course.content.to_plain_text)
       li.list-group-item
         .d-flex.justify-content-between
           = link_to t('Tilbage'), courses_path, class: 'btn btn-secondary'

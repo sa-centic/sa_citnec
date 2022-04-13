@@ -10,3 +10,5 @@ import "./src/jquery-ui"
 import "@nathanvda/cocoon"
 
 $('a[data-toggle="tooltip"]').tooltip();
+import "trix"
+import "@rails/actiontext"
