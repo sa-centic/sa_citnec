@@ -1,7 +1,9 @@
 class Courses::PrintsController < ApplicationController
+  before_action :set_course
 
-  before_action :set_course, only: [:show, :edit, :update, :destroy, :new, :create]
-  before_action :set_print, only:[:show, :edit, :update, :destroy, :new, :create]
+  def index
+
+  end
 
   def edit
   end
@@ -10,10 +12,14 @@ class Courses::PrintsController < ApplicationController
   end
 
   def new
-    @print = Courses::Print.new
   end
 
   def create
+    #TODO:
+    # When i click the create button, it should do the following:
+    # Initialize print process, and assign it to prawn, with the params[:courses_print]
+    # respond with finished pdf
+
   end
 
 
@@ -26,9 +32,5 @@ class Courses::PrintsController < ApplicationController
     @course = Course.find(params[:course_id])
   end
 
-  def set_print
-    # @print = @course.print
-     @print = Courses::Print.find(params[:id])
-  end
 
 end

@@ -58,6 +58,8 @@ gem "stimulus-rails"
 
 gem "simple_form"
 
+gem "prawn"
+
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"

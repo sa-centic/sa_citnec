@@ -1,7 +1,7 @@
 .container
   .page-header
     h1.text-center = ("Liste af nuværende Kurser hos Citnec")
-  /  h4 = render 'courses/search_form'
+  /  h4  = link_to "P", course_prints_url(@course), class: 'btn btn-primary'
 .container
   table.table.table-hover
     thead.table-light
@@ -13,8 +13,11 @@
         th = link_to "+", new_course_path, class: 'btn btn-primary'
     tbody
       - @courses.each do |course|
-        tr data-link="#{course_path(course)}"
-          td = course.course_name
-          td = course.course_description.truncate(40)
-          td = course.courseholder&.full_name
-          td = course.max_coursetakers
+        tr
+          div data-link="#{course_path(course)}"
+
+            td = course.course_name
+            td = course.course_description.truncate(40)
+            td = course.courseholder&.full_name
+            td = course.max_coursetakers
+          td = link_to "P", new_course_print_path(course), class: 'btn btn-primary'
