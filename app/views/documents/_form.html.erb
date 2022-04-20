@@ -1,0 +1,34 @@
+<%= form_with(model: document) do |form| %>
+  <% if document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+        <% document.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: "label" %>
+    <div class="control">
+      <%= form.text_field :title, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :note, class: "label" %>
+    <div class="control">
+      <%= form.text_field :note, class: "input" %>
+    </div>
+  </div>
+
+  <div class="actions mt-5 has-text-right">
+    <% if document.persisted? %>
+      <%= button_to "Delete", document_path(document), method: :delete, class: "button is-danger" %>
+    <% end %>
+    <%= form.submit nil, class: "button is-link" %>
+  </div>
+<% end %>

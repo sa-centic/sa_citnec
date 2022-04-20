@@ -71,6 +71,18 @@ gem 'ransack'
 
 gem "faker"
 
+gem "acts_as_list", "~> 1.0"
+
+gem "redcarpet", "~> 3.5"
+
+gem "rouge", "~> 3.26"
+
+gem "kramdown", "~> 2.3"
+
+gem "kramdown-syntax-coderay", "~> 1.0"
+
+gem "kramdown-parser-gfm", "~> 1.1"
+
 
 # gem 'jquery-turbolinks'
 

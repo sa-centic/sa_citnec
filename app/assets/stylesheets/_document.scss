@@ -1,0 +1,18 @@
+.document {
+  max-width: 64em !important;
+  padding: 1em 2em;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+[contenteditable] {
+  outline: none;
+}
+
+.title.is-document-title {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 700;
+}

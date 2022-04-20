@@ -4,5 +4,29 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
+import AddFragmentController from "./add_fragment_controller.js"
+application.register("add-fragment", AddFragmentController)
+
+import ChangeFragmentController from "./change_fragment_controller.js"
+application.register("change-fragment", ChangeFragmentController)
+
+import ClipboardController from "./clipboard_controller.js"
+application.register("clipboard", ClipboardController)
+
+import DropzoneController from "./dropzone_controller.js"
+application.register("dropzone", DropzoneController)
+
+import EditableController from "./editable_controller.js"
+application.register("editable", EditableController)
+
+import FormatController from "./format_controller.js"
+application.register("format", FormatController)
+
+import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import PreController from "./pre_controller.js"
+application.register("pre", PreController)
+
+import SortableController from "./sortable_controller.js"
+application.register("sortable", SortableController)
