@@ -1,0 +1,20 @@
+p#notice = notice
+
+p
+  strong Body:
+  = @post.body
+
+p
+  strong Course:
+  = @post.course
+
+h2 Posts
+- for post in @course.posts
+  ul
+    li= post.body
+
+=> link_to 'Edit', edit_course_post_path(@course, @post)
+'|
+=< link_to 'Back', course_posts_path(@course)
+| \
+= link_to 'Add Post', course_posts_path(@course)
