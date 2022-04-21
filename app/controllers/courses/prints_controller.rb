@@ -1,4 +1,6 @@
-class Courses::PrintsController < ApplicationController
+module Courses
+
+class PrintsController < ApplicationController
   before_action :set_course
 
   def index
@@ -12,6 +14,7 @@ class Courses::PrintsController < ApplicationController
   end
 
   def new
+    @print = Print.new
   end
 
   def create
@@ -33,4 +36,5 @@ class Courses::PrintsController < ApplicationController
   end
 
 
+end
 end
