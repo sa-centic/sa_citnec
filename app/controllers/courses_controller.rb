@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  include CoursesHelper
 
   def index
     @q = Course.ransack(params[:q])
@@ -19,6 +20,8 @@ class CoursesController < ApplicationController
     authorize current_user, policy_class: CoursePolicy
     @course = Course.new(course_params.except(:courseholder))
     @course.courseholder = User.find(course_params[:courseholder].to_i) unless course_params[:courseholder].blank?
+    @course.content.body = standard_content
+
     if @course.save
       redirect_to courses_path, notice: "Nyt Kursus er blevet oprettet"
     else

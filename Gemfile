@@ -16,6 +16,8 @@ gem 'factory_bot'
 
 gem 'bootstrap5-kaminari-views'
 
+gem 'prawn-rails'
+
 gem 'cocoon'
 
 # Use the Puma web server [https://github.com/puma/puma]
