@@ -6,7 +6,7 @@
               { include_blank: true, }
       = f.text_area :course_description
       = f.number_field :max_coursetakers, in: 1..200, step: 1
-      = f.rich_text_area :content
+      = f.rich_text_area :content, value: @course.content.body.empty? ? @course.course_description : @course.content.body
       - unless @course.new_record?
         - button_text = t('helpers.submit.update_user')
       = f.submit class: 'btn btn-success', data: { turbo: false }
