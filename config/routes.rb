@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, :courses
+  resources :users
 
   root 'users#index'
+
+  resources :courses do
+    collection do
+      get '/print/:id', to: 'courses#print', as: :print
+    end
+  end
 
   namespace :users do
     resources :coursetakers, class: 'Users::Coursetaker'

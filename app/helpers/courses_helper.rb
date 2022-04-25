@@ -23,4 +23,8 @@ module CoursesHelper
     result += "</ul>"
   end
 
+
+
+
+
 end

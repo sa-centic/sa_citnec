@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
 
+  require 'prawn'
+
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   include CoursesHelper
 
@@ -9,6 +11,14 @@ class CoursesController < ApplicationController
   end
 
   def show
+  end
+
+  def print
+    @course = Course.find(params[:id])
+    pdf = Prawn::Document.new
+    pdf.markup(render_trix_with_vars(@course.content.body.to_rendered_html_with_layout))
+    pdf.render_file 'assignment.pdf'
+    send_data pdf.render, filename: "#{@course.course_name}.pdf", type: "application/pdf"
   end
 
   def new
@@ -36,7 +46,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      redirect_to courses_path, notice: ("Kursus er blevet opdateret")
+      redirect_to @course, notice: ("Kursus er blevet opdateret")
     else
       render 'edit'
     end
@@ -57,6 +67,4 @@ class CoursesController < ApplicationController
   def set_course
     @course = Course.find(params[:id])
   end
-
-
-end
+  end

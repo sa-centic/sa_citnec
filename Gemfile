@@ -73,6 +73,15 @@ gem 'ransack'
 
 gem "faker"
 
+gem 'prawn'
+
+gem 'prawn-html'
+
+gem 'prawn-table'
+
+gem 'prawn-markup'
+
+
 
 # gem 'jquery-turbolinks'
 

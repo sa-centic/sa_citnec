@@ -68,6 +68,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ansi (1.5.0)
+    ast (2.4.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.10.3)
@@ -182,12 +184,22 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
+    oga (3.3)
+      ast
+      ruby-ll (~> 2.1)
     orm_adapter (0.5.0)
     pdf-core (0.9.0)
     pg (1.3.3)
     prawn (2.4.0)
       pdf-core (~> 0.9.0)
       ttfunk (~> 1.7)
+    prawn-html (0.6.2)
+      oga (~> 3.3)
+      prawn (~> 2.4)
+    prawn-markup (0.3.5)
+      nokogiri
+      prawn
+      prawn-table
     prawn-rails (1.4.2)
       actionview (>= 3.1.0)
       prawn
@@ -261,6 +273,9 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    ruby-ll (2.1.2)
+      ansi
+      ast
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -340,7 +355,11 @@ DEPENDENCIES
   kaminari
   letter_opener
   pg
+  prawn
+  prawn-html
+  prawn-markup
   prawn-rails
+  prawn-table
   puma (~> 5.0)
   pundit
   rails (~> 7.0.2, >= 7.0.2.2)

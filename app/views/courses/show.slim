@@ -69,5 +69,6 @@
             .trix_content.span.fw-normal  == render_trix_with_vars(@course.content.body&.to_rendered_html_with_layout)
       li.list-group-item
         .d-flex.justify-content-between
+          = link_to 'Print', print_courses_path(@course)
           = link_to t('Tilbage'), courses_path, class: 'btn btn-secondary'
           = link_to t('helpers.submit.edit_resource', resource: Course.model_name.human.downcase), edit_course_path, class: 'btn btn-success'
