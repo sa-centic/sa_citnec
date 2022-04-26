@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :courses do
+    resources :pdfs, only: [:index, :create, :new], module: :courses
     collection do
       get '/print/:id', to: 'courses#print', as: :print
     end
