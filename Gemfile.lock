@@ -352,6 +352,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   letter_opener
+  nokogiri
   pg
   prawn
   prawn-html
