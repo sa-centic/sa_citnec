@@ -18,7 +18,7 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'prawn-rails'
 
-gem 'nokogiri'
+gem "nokogiri", ">= 1.13.4"
 
 gem 'cocoon'
 
