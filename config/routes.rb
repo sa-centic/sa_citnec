@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :courses do
+    resources :multiple_pdfs
+  end
+
   namespace :users do
     resources :coursetakers, class: 'Users::Coursetaker'
     resources :courseholders, class: 'Users::Courseholder'

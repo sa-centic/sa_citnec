@@ -100,6 +100,7 @@
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.3.3, rbenv: 3.1.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prawn (v2.4.0, rbenv: 3.1.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prawn-html (v0.6.2, rbenv: 3.1.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="prawn-markup (v0.3.5, rbenv: 3.1.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prawn-rails (v1.4.2, rbenv: 3.1.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prawn-table (v0.2.2, rbenv: 3.1.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v4.0.6, rbenv: 3.1.0) [gem]" level="application" />

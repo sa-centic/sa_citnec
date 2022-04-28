@@ -12,9 +12,14 @@
         th = sort_link(@q, :max_coursetakers, "Max antal deltagere")
         th = link_to "+", new_course_path, class: 'btn btn-primary'
     tbody
-      - @courses.each do |course|
-        tr data-link="#{course_path(course)}"
-          td = course.course_name
-          td = course.course_description.truncate(40)
-          td = course.courseholder&.full_name
-          td = course.max_coursetakers
+     = form_with url: courses_multiple_pdfs_path, method: :post do |f|
+        -@courses.each do |course|
+              tr
+                td = course.course_name
+                td = course.course_description.truncate(40)
+                td = course.courseholder&.full_name
+                td = course.max_coursetakers
+                td = f.check_box :course_ids, {multiple: true}, course.id, nil
+                td = link_to t("common.show"), course_path(course), class: 'btn btn-info'
+        = f.submit
+

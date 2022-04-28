@@ -11,12 +11,13 @@ module Courses
     end
 
     def create
-      debugger
       pdf = Prawn::Document.new
       pdf.markup(render_trix_with_vars(course_params[:content]))
       pdf.render_file 'assignment.pdf'
       send_data pdf.render, filename: "#{@course.course_name}.pdf", type: "application/pdf"
     end
+
+
 
     private
 
